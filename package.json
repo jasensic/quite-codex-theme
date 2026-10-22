@@ -1,0 +1,68 @@
+{
+  "name": "quiet-codex-themes",
+  "displayName": "Quiet Codex Themes",
+  "description": "Warm, low-glare VS Code themes inspired by a quiet editorial workspace.",
+  "version": "0.1.0",
+  "publisher": "jcasensi",
+  "main": "./extension.js",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Themes"],
+  "activationEvents": ["onStartupFinished", "onLanguage:csharp"],
+  "contributes": {
+    "colors": [
+      {
+        "id": "quietCodexThemes.excludedCodeBackground",
+        "description": "Background for C# code excluded by the active project context.",
+        "defaults": {
+          "light": "#D8CCA8",
+          "dark": "#48483D",
+          "highContrast": "#000000",
+          "highContrastLight": "#FFFFFF"
+        }
+      },
+      {
+        "id": "quietCodexThemes.excludedCodeForeground",
+        "description": "Text for C# code excluded by the active project context.",
+        "defaults": {
+          "light": "#514D42",
+          "dark": "#C2BCA9",
+          "highContrast": "#FFFFFF",
+          "highContrastLight": "#000000"
+        }
+      }
+    ],
+    "configuration": {
+      "title": "Quiet Codex Themes",
+      "properties": {
+        "quietCodexThemes.schedule.enabled": {
+          "type": "boolean",
+          "default": true,
+          "scope": "application",
+          "description": "Automatically switch Quiet Codex themes using the local clock."
+        },
+        "quietCodexThemes.schedule.lightStartHour": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23,
+          "default": 10,
+          "scope": "application",
+          "description": "Local hour when Quiet Codex Light starts (0-23). Default: 10:00."
+        },
+        "quietCodexThemes.schedule.darkStartHour": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 23,
+          "default": 19,
+          "scope": "application",
+          "description": "Local hour when Quiet Codex Dark starts (0-23). Default: 19:00."
+        }
+      }
+    },
+    "themes": [
+      { "label": "Quiet Codex Light", "uiTheme": "vs", "path": "./themes/quiet-codex-light.json" },
+      { "label": "Quiet Codex Dark", "uiTheme": "vs-dark", "path": "./themes/quiet-codex-dark.json" }
+    ]
+  }
+}
